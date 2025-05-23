@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Компьютерные компоненты</title>
+</head>
+<body>
+    <select id="cpu">
+        <option value="">Выберите процессор</option>
+        <option value="Intel i5">Intel i5</option>
+        <option value="AMD Ryzen 5">AMD Ryzen 5</option>
+        <option value="Intel i7">Intel i7</option>
+        <option value="AMD Ryzen 7">AMD Ryzen 7</option>
+    </select>
+    <img id="pic_cpu" src="image/vopros.png" alt="Изображение процессора">
+
+    <select id="motherboard">
+        <option value="">Выберите материнскую плату</option>
+        <option value="ASUS ROG">ASUS ROG</option>
+        <option value="MSI B450">MSI B450</option>
+        <option value="Gigabyte AORUS">Gigabyte AORUS</option>
+    </select>
+    <img id="pic_motherboard" src="image/vopros.png" alt="Изображение материнской платы">
+
+    <select id="ram">
+        <option value="">Выберите оперативную память</option>
+        <option value="Corsair Vengeance">Corsair Vengeance</option>
+        <option value="G.Skill Ripjaws">G.Skill Ripjaws</option>
+    </select>
+    <img id="pic_ram" src="image/vopros.png" alt="Изображение оперативной памяти">
+
+    <select id="gpu">
+        <option value="">Выберите видеокарту</option>
+        <option value="NVIDIA GTX 1660">NVIDIA GTX 1660</option>
+        <option value="AMD RX 580">AMD RX 580</option>
+    </select>
+    <img id="pic_gpu" src="image/vopros.png" alt="Изображение видеокарты">
+
+    <script>
+        // Функция для обновления изображения в зависимости от выбранного значения
+        function updateImage(selectElement, imageElement, imageMap) {
+            const selectedValue = selectElement.value;
+            imageElement.src = imageMap[selectedValue] || 'image/vopros.png'; // Путь к изображению по умолчанию
+        }
+
+        // Обработчики событий для каждого выпадающего списка
+        const cpuSelect = document.getElementById('cpu');
+        const cpuImage = document.getElementById('pic_cpu');
+        const cpuImageMap = {
+            'Intel i5': 'image/intel_i5.jpg',
+            'AMD Ryzen 5': 'image/amd_ryzen_5.jpg',
+            'Intel i7': 'image/intel_i7.jpg',
+            'AMD Ryzen 7': 'image/amd_ryzen_7.jpg'
+        };
+        cpuSelect.addEventListener('change', () => updateImage(cpuSelect, cpuImage, cpuImageMap));
+
+        const motherboardSelect = document.getElementById('motherboard');
+        const motherboardImage = document.getElementById('pic_motherboard');
+        const motherboardImageMap = {
+            'ASUS ROG': 'image/asus_rog.jpg',
+            'MSI B450': 'image/msi_b450.jpg',
+            'Gigabyte AORUS': 'image/gigabyte_aorus.jpg'
+        };
+        motherboardSelect.addEventListener('change', () => updateImage(motherboardSelect, motherboardImage, motherboardImageMap));
+
+        const ramSelect = document.getElementById('ram');
+        const ramImage = document.getElementById('pic_ram');
+        const ramImageMap = {
+            'Corsair Vengeance': 'image/corsair_vengeance.jpg',
+            'G.Skill Ripjaws': 'image/gskill_ripjaws.jpg'
+        };
+        ramSelect.addEventListener('change', () => updateImage(ramSelect, ramImage, ramImageMap));
+
+        const gpuSelect = document.getElementById('gpu');
+        const gpuImage = document.getElementById('pic_gpu');
+        const gpuImageMap = {
+            'NVIDIA GTX 1660': 'image/nvidia_gtx_1660.jpg',
+            'AMD RX 580': 'image/amd_rx_580.jpg'
+        };
+        gpuSelect.addEventListener('change', () => updateImage(gpuSelect, gpuImage, gpuImageMap));
+    </script>
+</body>
+</html>
